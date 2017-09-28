@@ -11,13 +11,12 @@ import android.content.pm.PackageManager;
 public class MyUtils {
     public static String getVersion(Context context){
         PackageManager packageManager = context.getPackageManager();
-        PackageInfo packageInfo = null;
         try {
-            packageInfo = packageManager.getPackageInfo(context.getPackageName(),0);
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(),0);
+            return packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "";
         }
-        return packageInfo.versionName;
     }
 }

@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="2007dp"/>
+        android:layout_marginTop="207dp"/>
     <TextView
         android:id="@+id/tv_splash_version"
         android:layout_width="wrap_content"
