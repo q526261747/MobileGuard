@@ -7,8 +7,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
-
-import junit.runner.Version;
+;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
