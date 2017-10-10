@@ -68,10 +68,11 @@ public class VersionUpdateUtils {
     }
     public void getCloudVersion(){
         try {
+
         HttpClient httpclient = new DefaultHttpClient();
         HttpConnectionParams.setConnectionTimeout(httpclient.getParams(),5000);
         HttpConnectionParams.setSoTimeout(httpclient.getParams(),5000);
-        HttpGet httpGet = new HttpGet("http://android2017.duapp.com/upadateinfo.html");
+        HttpGet httpGet = new HttpGet("http://android2017.duapp.com/updateinfo.html");
         HttpResponse execute = httpclient.execute(httpGet);
             if(execute.getStatusLine().getStatusCode()==200){
                 HttpEntity httpEntity = execute.getEntity();
@@ -81,6 +82,7 @@ public class VersionUpdateUtils {
                 versionEntity.versioncode = jsonObject.getString("code");
                 versionEntity.desciption = jsonObject.getString("des");
                 versionEntity.apkurl = jsonObject.getString("apkurl");
+
                 if (!mVersion.equals(versionEntity.versioncode)){
                     //版本不同，需升级
                     handler.sendEmptyMessage(MESSAGE_SHOW_DIALOG);
