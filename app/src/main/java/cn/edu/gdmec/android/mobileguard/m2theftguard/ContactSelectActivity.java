@@ -64,7 +64,8 @@ public class ContactSelectActivity extends AppCompatActivity implements View.OnC
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
-            public void onItemClick(AdapterView<?> parent,View view,int position,long id){
+            public void onItemClick(AdapterView<?> parent,View view,
+                                    int position,long id){
                 ContactInfo item = (ContactInfo) adapter.getItem(position);
                 Intent intent = new Intent();
                 intent.putExtra("phone",item.phone);
