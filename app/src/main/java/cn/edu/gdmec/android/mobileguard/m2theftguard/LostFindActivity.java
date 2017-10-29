@@ -29,7 +29,9 @@ public class LostFindActivity extends AppCompatActivity implements View.OnClickL
         }
         initView();
     }
-
+    private boolean isSetUp() {
+        return mSharedPreferences.getBoolean("isSetUp",false);
+    }
     private void initView() {
         TextView mTitleTV = (TextView) findViewById(R.id.tv_title);
         mTitleTV.setText("手机防盗");
@@ -65,10 +67,6 @@ public class LostFindActivity extends AppCompatActivity implements View.OnClickL
                 editor.commit();
             }
         });
-    }
-
-    private boolean isSetUp() {
-        return mSharedPreferences.getBoolean("isSetUp",false);
     }
 
     private void startSetup1Activity(){

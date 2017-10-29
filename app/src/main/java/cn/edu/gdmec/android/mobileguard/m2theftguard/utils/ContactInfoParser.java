@@ -31,7 +31,6 @@ public class ContactInfoParser {
                 System.out.print("联系人id:"+id);
                 ContactInfo info = new ContactInfo();
                 info.id = id;
-
                 //2.根据联系人的id，查询data表，把这个id的数据取出来
                 //系统api 查询data表的时候 不是真正的查询data表，而是查询data表的视图
                 Cursor dataCursor = resolver.query(datauri, new String[]{"data1","mimetype"},
@@ -40,10 +39,10 @@ public class ContactInfoParser {
                     String data1 = dataCursor.getString(0);
                     String mimetype = dataCursor.getString(1);
                     if("vnd.android.cursor.item/name".equals(mimetype)){
-                        System.out.print("姓名="+data1);
+                        System.out.println("姓名="+data1);
                         info.name = data1;
                     }else if("vnd.android.cursor.item/phone_v2".equals(mimetype)){
-                        System.out.print("电话="+data1);
+                        System.out.println("电话="+data1);
                         info.phone = data1;
                     }
                 }

@@ -130,11 +130,6 @@ public class HomeActivity extends AppCompatActivity {
 
                 @Override
                 public void cancle() {
-
-                }
-
-                @Override
-                public void cancel(){
                     mInPaswdDialog.dismiss();
                 }
             });

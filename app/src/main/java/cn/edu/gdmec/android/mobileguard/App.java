@@ -17,7 +17,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //correctSIM();
+        correctSIM();
     }
 
     public void correctSIM(){
@@ -29,7 +29,7 @@ public class App extends Application {
             //得到绑定的SIM卡串号
             String bindsim = sp.getString("sim","");
             //得到现在手机的SIM卡串号
-            TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+            TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             //为了测试在手机序列号上data 已模拟SIM卡被更换的情况
             String realsim = tm.getSimSerialNumber();
             //因为虚拟机无法更换SIM卡,所以使用虚拟机测试要有此代码，真机测试要注释这段代码

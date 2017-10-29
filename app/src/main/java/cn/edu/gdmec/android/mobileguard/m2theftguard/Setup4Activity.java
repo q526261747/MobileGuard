@@ -22,7 +22,7 @@ public class Setup4Activity extends BaseSetUpActivity {
         setContentView(R.layout.activity_setup_4);
         //设置第4个小圆点的颜色
         ((RadioButton)findViewById(R.id.rb_four)).setChecked(true);
-
+        initView();
     }
     public void initView(){
         ((RadioButton)findViewById(R.id.rb_four)).setChecked(true);
