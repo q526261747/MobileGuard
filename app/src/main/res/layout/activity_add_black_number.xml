@@ -5,7 +5,7 @@
               android:layout_height="match_parent">
                 <include layout="@layout/titlebar"/>
     <EditText
-        android:id="@+id/et_balcknumber"
+        android:id="@+id/et_blacknumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -18,7 +18,7 @@
         android:textColor="@color/bright_purple"
         android:textSize="16sp"/>
     <EditText
-        android:id="@+id/et_balckname"
+        android:id="@+id/et_blackname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"

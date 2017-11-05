@@ -56,7 +56,7 @@ public class BlackNumberDaoTest {
         BlackContactInfo info = new BlackContactInfo();
         for (long i = 0; i < 5; i++) {
             info.phoneNumber = 13500000000l + i + "";
-            dao.detele(info);
+            dao.delete(info);
         }
     }
     /**

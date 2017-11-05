@@ -79,7 +79,7 @@ public class BlackContactAdapter extends BaseAdapter {
         holder.mDeleteView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean datele = dao.detele(contactInfos.get(i));
+                boolean datele = dao.delete(contactInfos.get(i));
                 if (datele){
                     contactInfos.remove(contactInfos.get(i));
                     BlackContactAdapter.this.notifyDataSetChanged();
