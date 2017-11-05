@@ -13,10 +13,6 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.db.BlackNumberOpenHelper;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.entity.BlackContactInfo;
 
-/**
- * Created by 123 on 2017/11/5.
- */
-
 public class BlackNumberDao {
     private BlackNumberOpenHelper blackNumberOpenHelper;
 

@@ -4,10 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by 123 on 2017/11/5.
- */
-
 public class BlackNumberOpenHelper extends SQLiteOpenHelper{
     private static String DB_NAME="my_info";
     private static int VERSION=1;

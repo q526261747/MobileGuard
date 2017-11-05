@@ -3,7 +3,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-                <include layout="@layout/titlebar"/>
+    <include layout="@layout/titlebar" />
+
     <EditText
         android:id="@+id/et_blacknumber"
         android:layout_width="match_parent"
@@ -17,6 +18,7 @@
         android:paddingLeft="5dp"
         android:textColor="@color/bright_purple"
         android:textSize="16sp"/>
+
     <EditText
         android:id="@+id/et_blackname"
         android:layout_width="match_parent"
@@ -29,12 +31,14 @@
         android:paddingLeft="5dp"
         android:textColor="@color/bright_purple"
         android:textSize="16sp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:gravity="center"
         android:orientation="horizontal">
+
         <CheckBox
             android:id="@+id/cb_blacknumber_tel"
             android:layout_width="wrap_content"
@@ -45,8 +49,8 @@
             android:paddingLeft="40dp"
             android:text="电话拦截"
             android:textColor="@color/bright_purple"
-            android:textScaleX="1.1"
-            android:textSize="16sp"/>
+            android:textScaleX="1.1"/>
+
         <CheckBox
             android:id="@+id/cb_blacknumber_sms"
             android:layout_width="wrap_content"
@@ -60,6 +64,7 @@
             android:textScaleX="1.1"
             android:textSize="16sp"/>
     </LinearLayout>
+
     <Button
         android:id="@+id/add_blacknum_btn"
         android:layout_width="170dp"
@@ -67,6 +72,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:background="@drawable/add_btn_selector_securityphone"/>
+
     <Button
         android:id="@+id/add_fromcontact_btn"
         android:layout_width="170dp"
@@ -74,4 +80,5 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:background="@drawable/add_fromcontact_btn_selector_securityphone"/>
+
 </LinearLayout>
