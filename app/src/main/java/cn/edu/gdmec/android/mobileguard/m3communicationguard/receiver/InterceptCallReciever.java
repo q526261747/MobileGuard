@@ -32,6 +32,7 @@ public class InterceptCallReciever extends BroadcastReceiver{
         SharedPreferences mSP = context.getSharedPreferences("config",Context.MODE_PRIVATE);
         boolean BlackNumStatus = mSP.getBoolean("BlackNumStatus",true);
         if(!BlackNumStatus){
+            //黑名单拦截关闭
             return;
         }
         BlackNumberDao dao = new BlackNumberDao(context);
@@ -47,7 +48,12 @@ public class InterceptCallReciever extends BroadcastReceiver{
                     int blackContractMode = dao.getBlackContactMode(mIncomingNumber);
                     if (blackContractMode == 1 || blackContractMode == 3) {
                         Uri uri = Uri.parse("content://call_log/calls");
-                        context.getContentResolver().registerContentObserver(uri,true,new CallLogObserver(new Handler(),mIncomingNumber,context));
+                        context.getContentResolver().registerContentObserver(
+                                uri,
+                                true,
+                                new CallLogObserver(new Handler(),mIncomingNumber,
+                                        context));
+                        endCall(context);
                     }
                     break;
             }
@@ -71,10 +77,10 @@ public class InterceptCallReciever extends BroadcastReceiver{
             deleteCallLog(incomingNumber, context);
             super.onChange(selfChange);
         }
-
+    }
         public void deleteCallLog(String incomingNumber, Context context) {
             ContentResolver resolver = context.getContentResolver();
-            Uri uri = Uri.parse("content://call)log/calls");
+            Uri uri = Uri.parse("content://call_log/calls");
             Cursor cursor = resolver.query(uri , new String[]{ "_id"},"number=?",new String[] {incomingNumber}, "_id desc limit 1");
             if (cursor.moveToNext()) {
                 String id = cursor.getString(0);
@@ -93,5 +99,5 @@ public class InterceptCallReciever extends BroadcastReceiver{
                 e.printStackTrace();
             }
         }
-    }
+
 }

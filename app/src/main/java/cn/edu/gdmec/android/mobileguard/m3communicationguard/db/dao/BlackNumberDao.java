@@ -13,6 +13,10 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.db.BlackNumberOpenHelper;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.entity.BlackContactInfo;
 
+/**
+ * Created by 123 on 2017/11/5.
+ */
+
 public class BlackNumberDao {
     private BlackNumberOpenHelper blackNumberOpenHelper;
 
@@ -31,6 +35,7 @@ public class BlackNumberDao {
         values.put("number",blackContactInfo.phoneNumber);
         values.put("name",blackContactInfo.contactName);
         values.put("mode",blackContactInfo.mode);
+        values.put("types",blackContactInfo.type);
         long rowid = db.insert("blacknumber",null,values);
         if(rowid == -1){
             return false;
@@ -57,7 +62,7 @@ public class BlackNumberDao {
         //得到可读的数据库
         SQLiteDatabase db = blackNumberOpenHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(
-                "select number,mode,name from blacknumber limit ? offset ?",
+                "select number,mode,name,types from blacknumber limit ? offset ?",
                 new String[] {String.valueOf(pagesize),
                         String.valueOf(pagesize * pagenumber) });
         List<BlackContactInfo> mBlackContactInfos = new ArrayList<BlackContactInfo>();
@@ -66,6 +71,7 @@ public class BlackNumberDao {
             info.phoneNumber = cursor.getString(0);
             info.mode = cursor.getInt(1);
             info.contactName = cursor.getString(2);
+            info.type = cursor.getString(3);
             mBlackContactInfos.add(info);
         }
         cursor.close();

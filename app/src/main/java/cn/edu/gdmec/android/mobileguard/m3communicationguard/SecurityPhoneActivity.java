@@ -26,7 +26,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     private FrameLayout mHaveBlackNumber;
     //没有黑名单时，显示的布局
     private  FrameLayout mNoBlackNumber;
-    private BlackNumberDao dao= new BlackNumberDao(SecurityPhoneActivity.this);
+    private BlackNumberDao dao= new BlackNumberDao(SecurityPhoneActivity.this);;
     private ListView mListView;
     private  int pagenumber = 0;
     private  int pagesize = 10;
@@ -35,7 +35,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     private BlackContactAdapter adapter;
 
     private void fillData(){
-//        dao = new BlackNumberDao(SecurityPhoneActivity.this);
+       //dao = new BlackNumberDao(SecurityPhoneActivity.this);
         totalNumber = dao.getTotalNumber();
         if(totalNumber == 0){
             //数据库中没有黑名单数据
@@ -82,11 +82,13 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
 
 
                     case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
-                        int lastVisilePosition = mListView.getLastVisiblePosition();
+                        int lastVisilePosition = mListView.
+                                getLastVisiblePosition();
                         if(lastVisilePosition == pageBlackNumber.size() - 1){
                             pagenumber++;
                             if(pagenumber * pagesize >= totalNumber) {
-                                Toast.makeText(SecurityPhoneActivity.this,"没有更多的数据了,",Toast.LENGTH_LONG).show();
+                                Toast.makeText(SecurityPhoneActivity.this,
+                                        "没有更多的数据了,",Toast.LENGTH_LONG).show();
                             }else{
                                 pageBlackNumber.addAll(dao.getPageBlackNumber(pagenumber,pagesize));
                                 adapter.notifyDataSetChanged();

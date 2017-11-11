@@ -9,6 +9,8 @@ public class BlackContactInfo {
     public String phoneNumber;
     /*黑名单联系人名称*/
     public String contactName;
+    /*黑名单类型*/
+    public String type;
     /*黑名单拦截模式*/
     public int mode;
 
