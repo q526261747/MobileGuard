@@ -8,7 +8,23 @@ import android.graphics.drawable.Drawable;
 
 public class AppInfo {
     /**
+     * 应用版本号
+     */
+    public String version;
+    /**
+     * 应用安装时间
+     */
+    public String installTime;
+    /**
+     * apk证书签署者信息
+     */
+    public String certifi;
+    /**
      * 应用程序包名
+     */
+    public String permisstion;
+    /**
+     * 应用权限申请信息
      */
     public String packageName;
     /**
