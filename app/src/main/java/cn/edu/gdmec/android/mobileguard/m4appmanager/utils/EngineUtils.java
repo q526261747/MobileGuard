@@ -44,7 +44,7 @@ public class EngineUtils {
      */
     public static void SettingAppDetail(Context context, AppInfo appInfo) {
         Intent intent = new Intent();
-        intent.setAction("android.setting.APPLICATION_DETAILS_SETINGS");
+        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.addCategory(Intent.CATEGORY_DEFAULT);
         intent.setData(Uri.parse("package:" + appInfo.packageName));
         context.startActivity(intent);

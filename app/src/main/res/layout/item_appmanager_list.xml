@@ -74,5 +74,6 @@
             style="@style/tvyellow14sp"
             android:text="设置"
             android:drawableTop="@drawable/settingicon_yellow_n"/>
+
     </LinearLayout>
 </LinearLayout>

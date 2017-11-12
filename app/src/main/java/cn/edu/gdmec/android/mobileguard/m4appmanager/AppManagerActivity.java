@@ -44,7 +44,9 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
     private List<AppInfo> systemAppInfos = new ArrayList<AppInfo>();
     private AppManagerAdapter adapter;
     private TextView mAppNumTV;
-    /**接受应用程序卸载成功的广播*/
+    /**
+     * 接受应用程序卸载成功的广播
+     */
     private UninstallReceiver receiver;
 
     private Handler mHandler = new Handler() {
@@ -65,6 +67,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
             }
         }
     };
+
     private void initData() {
         appInfos = new ArrayList<AppInfo>();
         new Thread() {
@@ -95,6 +98,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
             initData();
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,45 +125,50 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
         initData();
         initListener();
     }
+
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.imgv_leftbtn:
                 finish();
                 break;
         }
     }
-    /**拿到手机和SD卡剩余内存*/
+
+    /**
+     * 拿到手机和SD卡剩余内存
+     */
     private void getMemoryFromPhone() {
         long aval_sd = Environment.getExternalStorageDirectory().getFreeSpace();
         long avail_rom = Environment.getDataDirectory().getFreeSpace();
-        String str_avail_sd = Formatter.formatFileSize(this,aval_sd);
-        String str_avail_rom = Formatter.formatFileSize(this,avail_rom);
-        mPhoneMemoryTV.setText("剩余手机内存："+str_avail_rom);
-        mSDMemoryTV.setText("剩余SD卡内存："+str_avail_sd);
+        String str_avail_sd = Formatter.formatFileSize(this, aval_sd);
+        String str_avail_rom = Formatter.formatFileSize(this, avail_rom);
+        mPhoneMemoryTV.setText("剩余手机内存：" + str_avail_rom);
+        mSDMemoryTV.setText("剩余SD卡内存：" + str_avail_sd);
     }
+
     private void initListener() {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,final int i, long id) {
-                if (adapter!=null){
-                    new Thread(){
-                        public void run(){
+            public void onItemClick(AdapterView<?> parent, View view, final int i, long id) {
+                if (adapter != null) {
+                    new Thread() {
+                        public void run() {
                             AppInfo mappInfo = (AppInfo) adapter.getItem(i);
                             //记住当前条目的状态
                             boolean flag = mappInfo.isSelected;
                             //先将集合中的所有条目的AppInfo变为未选中状态
-                            for (AppInfo appInfo : userAppInfos){
+                            for (AppInfo appInfo : userAppInfos) {
                                 appInfo.isSelected = false;
                             }
-                            for (AppInfo appInfo : systemAppInfos){
+                            for (AppInfo appInfo : systemAppInfos) {
                                 appInfo.isSelected = false;
                             }
-                            if (mappInfo!=null){
+                            if (mappInfo != null) {
                                 //如果已经选中，则变为未选中
-                                if (flag){
+                                if (flag) {
                                     mappInfo.isSelected = false;
-                                }else {
+                                } else {
                                     mappInfo.isSelected = true;
                                 }
                                 mHandler.sendEmptyMessage(15);
@@ -177,10 +186,10 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if (firstVisibleItem >= userAppInfos.size()+1){
-                    mAppNumTV.setText("系统程序:"+systemAppInfos.size()+"个");
-                }else {
-                    mAppNumTV.setText("用户程序："+userAppInfos.size()+"个");
+                if (firstVisibleItem >= userAppInfos.size() + 1) {
+                    mAppNumTV.setText("系统程序:" + systemAppInfos.size() + "个");
+                } else {
+                    mAppNumTV.setText("用户程序：" + userAppInfos.size() + "个");
                 }
             }
         });

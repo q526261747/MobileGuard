@@ -3,6 +3,7 @@ package cn.edu.gdmec.android.mobileguard.m4appmanager.adapter;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -13,7 +14,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import cn.edu.gdmec.android.mobileguard.App;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.utils.DensityUtil;
@@ -95,8 +95,9 @@ public class AppManagerAdapter extends BaseAdapter {
             viewHolder.mAppIconImgv = (ImageView) view.findViewById(R.id.imgv_appicon);
             viewHolder.mAppLocationTV = (TextView) view.findViewById(R.id.tv_appisroom);
             viewHolder.mAppSizeTV = (TextView) view.findViewById(R.id.tv_appsize);
-            viewHolder.mAppNameTV = (TextView) view.findViewById(R.id.tv_name);
+            viewHolder.mAppNameTV = (TextView) view.findViewById(R.id.tv_appname);
             viewHolder.mLuanchAppTV = (TextView) view.findViewById(R.id.tv_launch_app);
+            viewHolder.mShareAppTV = (TextView) view.findViewById(R.id.tv_share_app);
             viewHolder.mSettingAppTV = (TextView) view.findViewById(R.id.tv_setting_app);
             viewHolder.mUninstallTV = (TextView) view.findViewById(R.id.tv_uninstall_app);
             viewHolder.mAppOtionLL = (LinearLayout) view.findViewById(R.id.ll_option_app);
@@ -107,6 +108,7 @@ public class AppManagerAdapter extends BaseAdapter {
             viewHolder.mAppIconImgv.setImageDrawable(appInfo.icon);
             viewHolder.mAppSizeTV.setText(Formatter.formatFileSize(context,appInfo.appSize));
             viewHolder.mAppNameTV.setText(appInfo.appName);
+
             if (appInfo.isSelected){
                 viewHolder.mAppOtionLL.setVisibility(View.VISIBLE);
             }else{
@@ -128,7 +130,7 @@ public class AppManagerAdapter extends BaseAdapter {
                 DensityUtil.dip2px(context, 5),
                 DensityUtil.dip2px(context, 5),
                 DensityUtil.dip2px(context, 5));
-        tv.setTextColor(ContextCompat.getColor(context, R.color.graye5));
+        tv.setTextColor(ContextCompat.getColor(context, R.color.black));
         return tv;
     }
 
@@ -186,10 +188,10 @@ public class AppManagerAdapter extends BaseAdapter {
                     EngineUtils.startApplication(context, appInfo);
                     break;
                 case R.id.tv_share_app:
-                    EngineUtils.startApplication(context, appInfo);
+                    EngineUtils.shareApplication(context, appInfo);
                     break;
                 case R.id.tv_setting_app:
-                    EngineUtils.startApplication(context, appInfo);
+                    EngineUtils.SettingAppDetail(context, appInfo);
                     break;
                 case R.id.tv_uninstall_app:
                     //卸载应用，需要注册广播接受者
