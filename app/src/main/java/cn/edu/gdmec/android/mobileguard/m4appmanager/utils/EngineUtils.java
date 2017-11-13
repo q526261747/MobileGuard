@@ -81,4 +81,17 @@ public class EngineUtils {
         AlertDialog dialog =  builder.create();
         dialog.show();
     }
+    public static void ActivityDetail(Context context,AppInfo appInfo){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(appInfo.appName);
+        builder.setMessage("Activities："+appInfo.activities);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog dialog =  builder.create();
+        dialog.show();
+    }
 }

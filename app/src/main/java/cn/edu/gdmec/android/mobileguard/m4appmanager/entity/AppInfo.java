@@ -8,6 +8,10 @@ import android.graphics.drawable.Drawable;
 
 public class AppInfo {
     /**
+     * 应用活动
+     */
+    public String activities;
+    /**
      * 应用版本号
      */
     public String version;

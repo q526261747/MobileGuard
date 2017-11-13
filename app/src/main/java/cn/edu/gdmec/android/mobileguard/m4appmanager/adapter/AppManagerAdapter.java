@@ -3,7 +3,6 @@ package cn.edu.gdmec.android.mobileguard.m4appmanager.adapter;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.text.format.Formatter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -99,6 +98,7 @@ public class AppManagerAdapter extends BaseAdapter {
             viewHolder.mLuanchAppTV = (TextView) view.findViewById(R.id.tv_launch_app);
             viewHolder.mShareAppTV = (TextView) view.findViewById(R.id.tv_share_app);
             viewHolder.mAboutIconTV = (TextView) view.findViewById(R.id.tv_about_app);
+            viewHolder.mActivityTV = (TextView) view.findViewById(R.id.tv_activity_app);
             viewHolder.mSettingAppTV = (TextView) view.findViewById(R.id.tv_setting_app);
             viewHolder.mUninstallTV = (TextView) view.findViewById(R.id.tv_uninstall_app);
             viewHolder.mAppOtionLL = (LinearLayout) view.findViewById(R.id.ll_option_app);
@@ -122,6 +122,7 @@ public class AppManagerAdapter extends BaseAdapter {
         viewHolder.mShareAppTV.setOnClickListener(listener);
         viewHolder.mUninstallTV.setOnClickListener(listener);
         viewHolder.mAboutIconTV.setOnClickListener(listener);
+        viewHolder.mActivityTV.setOnClickListener(listener);
         return view;
     }
 
@@ -157,6 +158,10 @@ public class AppManagerAdapter extends BaseAdapter {
          * 关于app
          */
         TextView mAboutIconTV;
+        /**
+         * 活动信息
+         */
+        TextView mActivityTV;
         /**
          * app图标
          */
@@ -210,6 +215,9 @@ public class AppManagerAdapter extends BaseAdapter {
                 case R.id.tv_about_app:
                     //关于应用
                     EngineUtils.AbouticonAppDetail(context,appInfo);
+                    break;
+                case R.id.tv_activity_app:
+                    EngineUtils.ActivityDetail(context,appInfo);
                     break;
             }
         }
