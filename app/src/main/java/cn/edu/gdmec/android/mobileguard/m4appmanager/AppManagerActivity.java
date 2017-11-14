@@ -74,7 +74,6 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
             public void run() {
                 appInfos.clear();
                 userAppInfos.clear();
-                ;
                 systemAppInfos.clear();
                 appInfos.addAll(AppInfoParser.getAppInfos(AppManagerActivity.this));
                 for (AppInfo appInfo : appInfos) {
