@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanSpeedActivity">
     <include layout="@layout/titlebar"/>
 
     <RelativeLayout
@@ -13,7 +16,6 @@
             android:id="@+id/tv_scanprocess"
             style="@style/wrapcontent"
             android:layout_centerInParent="true"
-            android:textColor="@color/white"
             android:textSize="38sp"
             android:textStyle="bold"/>
         <LinearLayout
@@ -30,7 +32,7 @@
                 android:layout_height="30dp"
                 android:background="@drawable/scanning_icon"/>
             <TextView
-                android:id="@+id/tv_scansapp"
+                android:id="@+id/tv_scanapp"
                 style="@style/textview16sp"
                 android:layout_marginLeft="5dp"
                 android:singleLine="true"
@@ -38,11 +40,13 @@
         </LinearLayout>
     </RelativeLayout>
 
+
     <ListView
         android:id="@+id/lv_scanapps"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"></ListView>
+        android:layout_height="match_parent"
+        android:layout_weight="10">
+    </ListView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,4 +58,5 @@
             android:layout_height="40dp"
             android:background="@drawable/cancel_scan_btn_selector"/>
     </LinearLayout>
+
 </LinearLayout>

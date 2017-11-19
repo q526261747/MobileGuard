@@ -3,15 +3,16 @@ package cn.edu.gdmec.android.mobileguard.m1home.utils;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Environment;
 import android.webkit.MimeTypeMap;
 
 /**
- * Created by 52626 on 2017/9/19.
+ * Created by Jack on 2017/10/12.
  */
 
 public class DownloadUtils {
-    public void downloadAPK(String url, String targetFile, Context context) {
-        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+    public void downloadApk(String url, String targetFile, Context context){
+        DownloadManager.Request request = new DownloadManager.Request( Uri.parse(url));
         request.setAllowedOverRoaming(false);
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         String mimeString = mimeTypeMap.getMimeTypeFromExtension(mimeTypeMap.getFileExtensionFromUrl(url));
@@ -20,8 +21,12 @@ public class DownloadUtils {
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
         request.setVisibleInDownloadsUi(true);
 
-        request.setDestinationInExternalPublicDir("/download", targetFile);
+        request.setDestinationInExternalPublicDir("/download",targetFile);
+        //request.setDestinationInExternalPublicDir("/data/data/"+context.getPackageName()+"/files/antivirus.db",targetFile);
+        //request.setDestinationInExternalPublicDir( Environment.DIRECTORY_DOWNLOADS,targetFile);
+
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         long mTaskid = downloadManager.enqueue(request);
+
     }
 }

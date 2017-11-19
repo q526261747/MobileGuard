@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <include layout="@layout/titlebar"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,6 +15,15 @@
             android:layout_height="80dp"
             android:layout_centerInParent="true"
             android:background="@drawable/virusscan_icon"/>
+        <!--模块5-->
+        <TextView
+            android:id="@+id/tv_dbversion"
+            style="@style/textview16sp"
+            android:layout_above="@+id/tv_lastscantime"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:text="病毒数据库版本:"/>
+
         <TextView
             android:id="@+id/tv_lastscantime"
             style="@style/textview16sp"
@@ -20,8 +31,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:textColor="@color/white"/>
-    </RelativeLayout>
 
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_allscanvirus"
         android:layout_width="match_parent"
@@ -44,9 +55,9 @@
             style="@style/textview14sp"
             android:layout_below="@+id/tv_allscan"
             android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@id/imgv_quickscan"
+            android:layout_toRightOf="@+id/imgv_quickscan"
             android:layout_marginTop="10dp"
-            android:text="全盘扫描手机，杀毒更彻底"/>
+            android:text="全面扫描手机，杀毒更彻底"/>
         <View
             android:layout_width="13dp"
             android:layout_height="20dp"

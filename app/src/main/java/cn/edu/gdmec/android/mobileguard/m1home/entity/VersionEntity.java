@@ -1,14 +1,11 @@
 package cn.edu.gdmec.android.mobileguard.m1home.entity;
 
 /**
- * Created by 52626 on 2017/9/19.
+ * Created by pc on 2017/9/23.
  */
 
 public class VersionEntity {
-    /**服务器版本号**/
-    public  String versioncode;
-    /**版本描述**/
-    public String desciption;
-    /**apk下载地址**/
+    public String versioncode;
+    public String description;
     public String apkurl;
 }
